@@ -1,6 +1,9 @@
 class Solution {
- public:
+public:
   int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
-    return ceil(log(buckets) / log(minutesToTest / minutesToDie + 1));
+    int times = minutesToTest / minutesToDie;
+    int result = 0;
+    while (pow(times + 1, result) < buckets) ++result;
+    return result;
   }
 };
